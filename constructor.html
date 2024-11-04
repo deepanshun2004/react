@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOPS</title>
+    <style>
+        .output {
+            font-family: Arial, sans-serif;
+            white-space: pre-wrap; /* Preserve whitespace formatting */
+        }
+    </style>
+</head>
+<body>
+    <div class="output" id="output"></div>
+
+    <script type="text/javascript">
+        function appendToOutput(message) {
+            const outputDiv = document.getElementById('output');
+            outputDiv.textContent += message + '\n';
+        }
+
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            sayHello() {
+                appendToOutput(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+            }
+        }
+
+        const person1 = new Person("Aarav", 30);
+        const person2 = new Person("Isha", 25);
+
+        person1.sayHello();
+        person2.sayHello();
+
+        class Account {
+            constructor(accountNumber, accountHolder, initialBalance) {
+                this.accountNumber = accountNumber;
+                this.accountHolder = accountHolder;
+                this.initialBalance = initialBalance;
+            }
+
+            deposit(amount) {
+                this.initialBalance += amount;
+                appendToOutput(`Deposited ₹${amount} into account ${this.accountNumber}. New Balance: ₹${this.initialBalance}`);
+            }
+
+            withdraw(amount) {
+                this.initialBalance -= amount;
+                appendToOutput(`Withdrew ₹${amount} from account ${this.accountNumber}. New Balance: ₹${this.initialBalance}`);
+            }
+
+            getBalance() {
+                appendToOutput(`Your current balance is ₹${this.initialBalance}`);
+            }
+        }
+
+        const holder1 = new Account(1234567, "Aarav", 5000);
+        const holder2 = new Account(6734678, "Isha", 1000);
+        const holder3 = new Account(8965630, "Ravi", 50000);
+
+        holder1.deposit(500);
+        holder1.withdraw(200);
+        holder1.getBalance();
+    </script>
+</body>
+</html>

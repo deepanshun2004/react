@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location and Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Punjab Haryana Chandigarh</h1>
+    <script>
+   
+        const validUsername = "deepanshu";
+        const validPassword = "deepanshu123";
+
+        window.onload = function() {
+       
+            const location = prompt("Please enter your location :");
+
+           
+            if (location === "Punjab" || location === "Haryana" || location === "Chandigarh") {
+           
+                const enteredUsername = prompt("Enter your username:");
+                const enteredPassword = prompt("Enter your password:");
+
+                if (enteredUsername === validUsername && enteredPassword === validPassword) {
+                    alert("Welcome to " + location);
+                 
+                    if (location === "Punjab") {
+                        window.location.href = "https://www.google.com/maps/place/Punjab";
+                    } else if (location === "Haryana") {
+                        window.location.href = "https://www.google.com/maps/place/Haryana";
+                    } else if (location === "Chandigarh") {
+                        window.location.href = "https://www.google.com/maps/place/Chandigarh";
+                    }
+                } else {
+                    alert("Wrong credentials");
+                }
+            } else {
+                alert("Access Denied.");
+            }
+        };
+    </script>
+</body>
+</html>
+
+
+

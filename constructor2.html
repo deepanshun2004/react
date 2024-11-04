@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Transactions</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Account Transactions</h1>
+        <div>
+            <p>Account Number: 1234567</p>
+            <p>Account Holder: Dharampal</p>
+            <p id="balance">Balance: Rs 3000</p>
+        </div>
+        <div>
+            <button onclick="deposit(4000)">Deposit Rs 4000</button>
+            <button onclick="withdraw(1000)">Withdraw Rs 1000</button>
+        </div>
+        <div>
+            <p id="current-balance">Your current balance is Rs 3000</p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            sayHello() {
+                console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+            }
+        }
+
+        class Account {
+            constructor(accountNumber, accountHolder, initialBalance) {
+                this.accountNumber = accountNumber;
+                this.accountHolder = accountHolder;
+                this.initialBalance = initialBalance;
+            }
+
+            deposit(amount) {
+                this.initialBalance += amount;
+                console.log(`Deposited Rs ${amount} to account ${this.accountNumber}. New Balance: Rs ${this.initialBalance}`);
+                this.updateBalanceDisplay();
+            }
+
+            withdraw(amount) {
+                if (amount > this.initialBalance) {
+                    console.log(`Insufficient funds in account ${this.accountNumber}.`);
+                } else {
+                    this.initialBalance -= amount;
+                    console.log(`Withdrew Rs ${amount} from account ${this.accountNumber}. New Balance: Rs ${this.initialBalance}`);
+                    this.updateBalanceDisplay();
+                }
+            }
+
+            getBalance() {
+                console.log(`Your current balance is Rs ${this.initialBalance}`);
+            }
+
+            updateBalanceDisplay() {
+                document.getElementById("balance").innerText = `Balance: Rs ${this.initialBalance}`;
+                document.getElementById("current-balance").innerText = `Your current balance is Rs ${this.initialBalance}`;
+            }
+        }
+
+        const holder1 = new Account(1234567, "Dharampal", 3000);
+
+        function deposit(amount) {
+            holder1.deposit(amount);
+        }
+
+        function withdraw(amount) {
+            holder1.withdraw(amount);
+        }
+    </script>
+</body>
+</html>
